@@ -1,0 +1,32 @@
+.box-form-botao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.naruto-form{
+    width: 100%;
+}
+.botao-entrar{
+    margin-top: 15px;
+}
+@media(max-width: 649px) {
+    .box-form-botao {
+        width: 100%;
+        padding: 10px;
+    }
+    .naruto-form{
+        width: 100%;
+        height: 340px;
+    }
+    a, .botao-entrar{
+        width: 100%;
+    }
+}
+@media(max-width: 359px) {
+    .naruto-form {
+        width: 100%;
+        min-width: 230px;
+        height: 340px;
+        padding: 10px;
+    }
+}

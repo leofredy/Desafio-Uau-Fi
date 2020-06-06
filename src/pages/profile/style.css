@@ -1,0 +1,271 @@
+.container-profile{
+    padding: 40px 40px 0px 40px;
+}
+.background-profile{
+    height: 100vh;
+    background-image: url('../../assets/banner-background.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 430px 698px;
+}
+.nav-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.presentation-profile {
+    display: flex;
+    align-items: center;
+}
+.logo-naruto-profile {
+    width: 204px;
+    height: 87px;
+    margin-right: 20px;
+}
+.ninja-profile {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+.my-account {
+    width: 238px;
+    height: 46px;
+    margin-right: 20px;
+    background-color: #DF423A;
+    color: #FFF;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+.header-profile{
+    display: flex;
+    flex-direction: column;
+    margin-top: 38px;
+}
+.counter-profile{
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.search-profile{
+    display: flex;
+    align-items: center;
+}
+.input-profile{
+    width: 189px;
+    height: 26px;
+    opacity: 0.73;
+    border-radius: 4px 0px 0px 4px;
+}
+.button-profile{
+    background-color: #DF423A;
+    width: 30px;
+    height: 26px;
+    border-radius: 0px 4px 4px 0px;
+}
+section.section-profile{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.container-item{
+    align-self: center;
+    width: 372px;
+    height: 232px;
+    background-color: #FFFFFF;
+    opacity: 0.7;
+    padding: 15px;
+    margin-top: 31px;
+}
+.background-profile li:nth-child(3n-2){
+    justify-self: start;
+}
+.background-profile li:nth-child(3n){
+    justify-self: end;
+}
+
+h1.title-item{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #DF423A;
+    text-align: center;
+}
+.info-item{
+    display: flex;
+    align-items: baseline;
+    margin-top: 24px;
+}
+h2.description{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #DF423A;
+}
+h3.ninja{
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: #3B3A3A;
+    margin-left: 3px;
+}
+.background-profile ul.list-item{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+.container-item:hover{
+    box-shadow: 1px 1px 8px #212020;
+}
+.container-dropdown-profile {
+    display: none;
+}
+@media(min-width: 1450px){
+    .logo-naruto-profile{
+        width: 386px;
+        height: 121px;
+    }
+    h1.ninja-profile{
+        font-size: 26px;
+    }
+    .my-account{
+        width: 260px;
+        height: 55px;
+        font-size: 19px;
+    }
+    .power-profile{
+        width: 48px;
+        height: 48px;
+    }
+    h2.counter-profile{
+        font-size: 23px;
+    }
+    .input-profile{
+        width: 230px;
+        height: 35px;
+        font-size: 15px;
+    }
+    .button-profile{
+        width: 40px;
+        height: 35px;
+    }
+    .container-item{
+        width: 450px;
+        height: 280px;
+    }
+    h1.title-item{
+        font-size: 28px;
+    }
+    h2.description{
+        font-size: 28px;
+    }
+    h3.ninja{
+        font-size: 20px;
+    }
+}
+@media(min-width:1790px){
+    .logo-naruto-profile{
+        width: 400px;
+        height: 169.71px;
+    }
+    h1.ninja-profile{
+        font-size: 32px;
+    }
+    .my-account{
+        width: 275px;
+        height: 63px;
+        font-size: 22px;
+    }
+    .power-profile{
+        width: 55px;
+        height: 55px;
+    }
+    h2.counter-profile{
+        font-size: 28px;
+    }
+    .input-profile{
+        width: 260px;
+        height: 45px;
+        font-size: 18px;
+    }
+    .button-profile{
+        width: 49px;
+        height: 45px;
+    }
+    .container-item{
+        width: 480px;
+        height: 300px;
+    }
+    h1.title-item{
+        font-size: 33px;
+    }
+    h2.description{
+        font-size: 33px;
+    }
+    h3.ninja{
+        font-size: 26px;
+    }
+}
+@media(max-width:1024px){
+    .background-profile ul.list-item{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .background-profile li.container-item:nth-child(n) {
+        justify-self: center;
+    }
+    .container-dropdown-profile {
+        display: none;
+    }
+}
+@media(max-width: 890px){
+    .presentation-ninja{
+        flex-direction: column;
+    }
+    li.container-item{
+        width: 300px;
+    }
+} 
+@media(max-width: 649px) {
+    .container-profile{
+        padding: 0;
+    }
+    .background-profile{
+        padding: 87px 40px 0px 40px;
+    }
+    h1.ninja-profile{
+        text-align: center;
+    }
+    .nav-profile{
+        display: none;
+    }
+    .container-dropdown-profile{
+        background-color: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-dropdown-profile{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 10px;
+    }
+    .nav-dropdown-profile{
+        align-self: center;
+        text-align: center;
+        width: 100vh;
+        border-top: 1px solid #DF423A;
+    }
+    .visible{
+        display: none;
+    }
+    ul.list-dropdown-profile li{
+        color: #DF423A;
+    }
+    .background-profile ul.list-item{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

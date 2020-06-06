@@ -1,0 +1,28 @@
+main.main-delete{
+    padding-left: 30%;
+    padding-right: 30%;
+}
+div.container-form-delete{
+    height: 350px;
+}
+.pass-form-delete{
+    width: 100%;
+}
+@media(max-width:1024px){
+    main.main-delete{
+        padding-left: 23%;
+        padding-right: 23%;
+    }
+}
+@media(max-width: 800px){
+    main.main-delete{
+        padding-left: 18%;
+        padding-right: 18%;
+    }
+}
+@media(max-width: 600px){
+    main.main-delete{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -1,14 +1,37 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
-import { IoMdTrash ,IoMdPower, IoMdCreate, IoMdMenu } from 'react-icons/io'
+import api from '../../services/api'
+
+import { IoMdPower, IoMdMenu } from 'react-icons/io'
 import logo from '../../assets/logo.svg'
 
 import '../CSS/foundation.css'
 import './style.css'
 
 export default function Users() {
+    const ninjaID = localStorage.getItem('NinjaID')
+    const [id, setID] = useState('')
+    const history = useHistory()
+
+    useEffect(()=>{
+        setID(ninjaID)
+    }, [])
     
+    async function handleDelete(){
+        const data = {
+            headers:{
+                authorization: id
+            }
+        }
+        try{
+            const response = await api.delete('delete', data)
+            localStorage.clear()
+            history.push('/')
+        }catch (error){
+            console.log(error)
+        }
+    }
     const stylesMethods = {
         handleDropdown(){
             document.querySelector('.nav-dropdown-users')
@@ -26,9 +49,9 @@ export default function Users() {
                     </Link>
                     </div>
                     <div>
-                    <Link onClick={stylesMethods.handleDropdown} >
+                    <button onClick={stylesMethods.handleDropdown} >
                         <IoMdMenu className="button-dropdown-users" color="#DF423A" size="30px" />
-                    </Link>
+                    </button>
                     </div>
                 </div>
                 <nav className="nav-dropdown-users visible">
@@ -66,16 +89,11 @@ export default function Users() {
                                 <h1 className="name-ninja-users">DESEJA EXCLUIR?</h1>
                             </div>
                             <div className="box-pass-form-users">
-                                <div className="pass-form-delete">
-                                    <label className="label-form-users">SENHA</label>
-                                    <input className="input-form-users" type="text"/>
-                                </div>
+                                <div className="pass-form-delete"></div>
                             </div>
                         </form>
                     </div>
-                    <Link className="box-button-form-users">
-                        <button className="submit-form-users">EXCLUIR</button>
-                    </Link>
+                    <button onClick={handleDelete} className="submit-form-users">EXCLUIR</button>
                 </main>
             </div>
         </div>

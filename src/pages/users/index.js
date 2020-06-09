@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+
+import api from '../../services/api'
 
 import { IoMdTrash ,IoMdPower, IoMdCreate, IoMdMenu } from 'react-icons/io'
 import logo from '../../assets/logo.svg'
@@ -20,6 +22,35 @@ export default function Users() {
         }
     }
 
+    const ninjaName = localStorage.getItem('NinjaName')
+    const ninjaEmail = localStorage.getItem('NinjaEmail')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [newpassword, setNewPassword] = useState('')
+
+    const history = useHistory()
+
+    useEffect(()=>{
+        setName(ninjaName)
+        setEmail(ninjaEmail)
+    }, [ninjaName])
+
+    async function handleUpdate(){
+        const response = await api.put('user', {
+            name,
+            email,
+            password,
+            newpassword
+        })
+        localStorage.setItem('NinjaName', name)
+        history.push('/')
+    }
+
+    function handleLogon(){
+        localStorage.clear()
+        history.push('/')
+    }
     return (
         <div className="container-users">
             <div className="container-dropdown-users ">
@@ -30,9 +61,9 @@ export default function Users() {
                     </Link>
                     </div>
                     <div>
-                    <Link onClick={stylesMethods.handleDropdown} >
+                    <button onClick={stylesMethods.handleDropdown} >
                         <IoMdMenu className="button-dropdown-users" color="#DF423A" size="30px" />
-                    </Link>
+                    </button>
                     </div>
                 </div>
                 <nav className="nav-dropdown-users visible">
@@ -41,7 +72,7 @@ export default function Users() {
                             <Link to="/profile">Voltar para início</Link>
                         </li>
                         <li>
-                            <Link to="/">Sair</Link>
+                            <button onClick={handleLogon}>Sair</button>
                         </li>
                     </ul>
                 </nav>
@@ -64,7 +95,7 @@ export default function Users() {
                     <div className="container-form-users">
                         <form action="">
                             <div className="presentation-form-users">
-                                <h1 className="name-ninja-users">LEONARDO FREDERICO DA SILVA</h1>
+                                <h1 className="name-ninja-users">{ninjaName}</h1>
                                 <div className="change-icons-users">
                                     <Link to="#" onClick={stylesMethods.changeInput}>
                                         <div className="change-span-users">
@@ -72,7 +103,7 @@ export default function Users() {
                                             <h3 className="span-users">Editar</h3>
                                         </div>
                                     </Link>
-                                    <Link to="/user/delete">
+                                    <Link to="/delete">
                                         <div className="change-span-users">
                                             <IoMdTrash color="#DF423A" size="25" />
                                             <h3 className="span-users">Excluir</h3>
@@ -81,24 +112,45 @@ export default function Users() {
                                 </div>
                             </div>
                             <label className="label-form-users">NOME</label>
-                            <input className="input-form-users" disabled={disable} type="text"/>
+                            <input 
+                                className="input-form-users" 
+                                disabled={disable} 
+                                type="text"
+                                value={name}
+                                onChange={ e => setName(e.target.value) }
+                            />
                             <label className="label-form-users">E-MAIL</label>
-                            <input className="input-form-users" disabled={disable} type="text"/>
+                            <input 
+                                className="input-form-users" 
+                                disabled={true} 
+                                type="email" 
+                                value={ninjaEmail}
+                            />
                             <div className="box-pass-form-users">
                                 <div className="pass-form-users">
                                     <label className="label-form-users">SENHA</label>
-                                    <input className="input-form-users" disabled={disable} type="text"/>
+                                    <input 
+                                        className="input-form-users" 
+                                        disabled={disable} 
+                                        type="password"
+                                        value={password}
+                                        onChange={ e => setPassword(e.target.value) }
+                                    />
                                 </div>
                                 <div className="pass-form-users">
                                     <label className="label-form-users">NOVA SENHA</label>
-                                    <input className="input-form-users" disabled={disable} type="text"/>
+                                    <input 
+                                        className="input-form-users" 
+                                        disabled={disable} 
+                                        type="password"
+                                        value={newpassword}
+                                        onChange={ e => setNewPassword(e.target.value) }
+                                    />
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <Link className="box-button-form-users">
-                        <button className="submit-form-users">SALVAR ALTERAÇÕES</button>
-                    </Link>
+                    <button onClick={handleUpdate} className="submit-form-users">SALVAR ALTERAÇÕES</button>
                 </main>
             </div>
         </div>

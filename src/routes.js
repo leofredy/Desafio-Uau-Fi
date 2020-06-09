@@ -15,7 +15,7 @@ export default function Routes() {
                 <Route path="/create" component={Create} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/user" exact component={User} />
-                <Route path="/user/delete" component={Delete} />
+                <Route path="/delete" component={Delete} />
             </Switch>
         </BrowserRouter>
     )
